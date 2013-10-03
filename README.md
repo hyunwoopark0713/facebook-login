@@ -1,5 +1,4 @@
 <h1>Facebook Login</h1>
-=======================
 
 Web page which allows to perform Facebook Login and to display friends list.
 
@@ -28,6 +27,9 @@ Jasmine 1.3.1
 
 <li>
 <code>index.html</code> Login & Friends list display page.
+</li>
+
+<li>
 <code>js/script.js</code> Application module. Contains two controllers:
 <ol>
 <li>
