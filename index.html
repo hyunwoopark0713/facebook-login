@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" ng-app="App">
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>Facebook Login</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+        <script src="js/script.js"></script>
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    </head>
+    
+    <body>
+        <div id="fb-root"></div>
+        <div class="container">
+            <div class="row">
+                <nav class="navbar navbar-default">
+                    <span class="navbar-brand" href="#">Facebook Login</span>
+                </nav>
+            </div>
+            <div class="row text-center" ng-controller="LoginCtrl">
+                <p>
+                    <button id="login" class="btn-primary btn-lg" ng-click="login()">Facebook Login</button>
+                </p>
+            </div>
+            <div id="friends" class="row text-center" ng-controller="FriendsCtrl">
+                <p>
+                    <button id="getFriends" class="btn-success btn-lg" ng-click="addFacebookFriends()" style="visibility: hidden">Get Friends</button>
+                </p>
+                <div class="col-sm-6 col-md-3" ng-repeat="friend in friends">
+                    <div class="well thumbnail">
+                        <img ng-src="http://graph.facebook.com/{{ friend.id }}/picture" class="img-circle" />
+                        <div class="caption">{{ friend.name }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId: '202875656551783'
+                });
+            };
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "http://connect.facebook.net/en_US/all.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+    </body>
+
+</html>
